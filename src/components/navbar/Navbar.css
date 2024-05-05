@@ -1,0 +1,80 @@
+.logo {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: Exo 2;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 125%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+#links a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-family: Exo 2;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 125%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+#links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+}
+/* responsive */
+.navbar-responsive.open {
+  left: 0;
+}
+.menu-btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  display: none;
+}
+
+.menu-btn span {
+  display: block;
+  width: 30px;
+  height: 4px;
+  background-color: #333;
+}
+@media (max-width: 700px) {
+  .navbar-responsive {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    left: -100%;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    transition: 0.5s;
+  }
+  .menu-btn {
+    display: flex;
+  }
+}

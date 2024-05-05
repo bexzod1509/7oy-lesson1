@@ -1,0 +1,26 @@
+#z button {
+  border-radius: 4px;
+  padding: 10px 20px;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: rgb(249, 222, 222);
+  color: rgb(183, 59, 59);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+#z button:active {
+  background: #fff;
+}
+.manage {
+  margin-left: 300px;
+}
+#manage-top {
+  margin-top: 20px;
+}
