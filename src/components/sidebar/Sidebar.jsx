@@ -21,6 +21,14 @@ function Sidebar() {
               <MdManageAccounts />
               <p>Manage Product</p>
             </Link>
+            <Link to={"createuser"}>
+              <MdCreateNewFolder />
+              <p>Create User</p>
+            </Link>
+            <Link to={"manageuser"}>
+              <MdManageAccounts />
+              <p>Manage User</p>
+            </Link>
             <Link to={"/"}>
               <IoReturnDownBackSharp />
               <p>Back to Home</p>

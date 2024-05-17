@@ -1,0 +1,41 @@
+.create {
+  margin-left: 600px;
+  margin-top: 100px;
+}
+.create form {
+  max-width: 400px;
+  padding: 25px;
+  border: 2px solid gray;
+  border-radius: 8px;
+}
+.create form .input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.input input {
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+}
+.create h2 {
+  margin-bottom: 20px;
+}
+.create button {
+  border-radius: 4px;
+  padding: 10px 20px;
+  border-style: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  background: rgb(223, 249, 222);
+  color: rgb(71, 183, 59);
+  font-family: Lato;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-top: 20px;
+}

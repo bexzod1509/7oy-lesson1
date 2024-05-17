@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
-import "../Products/Product.css";
-import "./Productadmin.css";
+import "./UserAdmin.css";
 import { MdDeleteOutline } from "react-icons/md";
-import { useDeleteProductMutation } from "../../context/productsApi";
+import { useDeleteUserMutation } from "../../context/usersApi";
 import { toast } from "react-toastify";
-function Productadmin({ data }) {
-  let [deleteProduct, { isLoading }] = useDeleteProductMutation();
+function UserAdmin({ data }) {
+  let [deleteUser, { isLoading }] = useDeleteUserMutation();
   const handleDelete = (id) => {
-    deleteProduct(id);
+    deleteUser(id);
     toast.success("Deleted");
   };
   let products = data?.map((el) => (
     <div key={el.id} className="d2">
-      <img className="img" src={el.image} alt="" />
-      <p>Hot</p>
-      <span>{el.description}</span>
-      <h1>{el.title}</h1>
-      <h4>
-        By <b>NestClose</b>
-      </h4>
+      <img className="img" src={el.avatar} alt="" />
+      <h1>{el.name}</h1>
+      <h4>{el.age}</h4>
       <div className="d4" id="z">
         <div className="d5">
-          <h2>${el.price}</h2>
-          <del>${Math.round(el.price + 5)}</del>
+          <h2>${el.lastname}</h2>
         </div>
         <button onClick={() => handleDelete(el.id)}>
           <MdDeleteOutline />
@@ -35,7 +29,7 @@ function Productadmin({ data }) {
     <div className="container">
       <div className="manage">
         <div className="d" id="manage-top">
-          <h1>Popular Products</h1>
+          <h1>Users</h1>
         </div>
         <div className="d1">{products}</div>
       </div>
@@ -43,4 +37,4 @@ function Productadmin({ data }) {
   );
 }
 
-export default Productadmin;
+export default UserAdmin;

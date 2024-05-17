@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
 import Product from "../../components/Products/Product";
+import { useGetProductsQuery } from "../../context/productsApi";
 function Home() {
+  let { data, isLoading, error, isError } = useGetProductsQuery();
   return (
     <div>
-      <Navbar />
-      <Product />
+      <Product data={data} />
     </div>
   );
 }

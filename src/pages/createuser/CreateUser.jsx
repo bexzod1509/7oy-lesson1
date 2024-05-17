@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "./Create.css";
+import "./CreateUser.css";
 import { FaCirclePlus } from "react-icons/fa6";
-import { useCreateProductMutation } from "../../context/productsApi";
+import { useCreateUserMutation } from "../../context/usersApi";
 import { toast } from "react-toastify";
 const initial = {
-  title: "",
-  description: "",
-  price: "",
+  name: "",
+  lname: "",
+  age: "",
 };
 function Create() {
-  let [createProduct, { isLoading, isSuccess }] = useCreateProductMutation();
+  let [createUser, { isLoading, isSuccess }] = useCreateUserMutation();
   const [Data, setData] = useState(initial);
   useEffect(() => {
     if (isSuccess) {
@@ -19,48 +19,47 @@ function Create() {
   }, [isSuccess]);
   const handleCreate = (e) => {
     e.preventDefault();
-    createProduct(Data);
+    createUser(Data);
   };
   return (
     <div className="create">
       <form onSubmit={handleCreate} action="">
         <h2>Admin</h2>
         <div className="input">
-          <h3>Title*</h3>
+          <h3>Name*</h3>
           <input
-            value={Data.title}
+            value={Data.name}
             onChange={(e) =>
-              setData((prev) => ({ ...prev, title: e.target.value }))
+              setData((prev) => ({ ...prev, name: e.target.value }))
             }
             type="text"
             name=""
             id=""
             required
-            placeholder="Iphone 13 Pro Max"
+            placeholder="John"
           />
         </div>
         <div className="input">
-          <h3>Description*</h3>
+          <h3>Last Name*</h3>
           <input
-            value={Data.description}
+            value={Data.lname}
             onChange={(e) =>
-              setData((prev) => ({ ...prev, description: e.target.value }))
+              setData((prev) => ({ ...prev, lname: e.target.value }))
             }
             type="text"
             required
-            placeholder="Memory 256GB Black "
+            placeholder="Doe"
           />
         </div>
         <div className="input">
-          <h3>Price*</h3>
+          <h3>Age*</h3>
           <input
-            value={Data.price}
+            value={Data.age}
             onChange={(e) =>
-              setData((prev) => ({ ...prev, price: +e.target.value }))
+              setData((prev) => ({ ...prev, age: +e.target.value }))
             }
             type="number"
             required
-            placeholder="900"
           />
         </div>
         <button type="submit">

@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Product.css";
-import axios from "../../api/index";
 import { MdOutlineShoppingCart } from "react-icons/md";
-function Product() {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`/products`)
-      .then((res) => setData(res.data))
-      .catch((res) => console.log(res));
-  }, []);
+function Product({ data }) {
   let products = data?.map((el) => (
     <div key={el.id} className="d2">
       <img className="img" src={el.image} alt="" />
