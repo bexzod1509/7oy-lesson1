@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../Products/Product.css";
 import "./Productadmin.css";
 import { MdDeleteOutline } from "react-icons/md";
+import { FaRegEdit } from "react-icons/fa";
 import { useDeleteProductMutation } from "../../context/productsApi";
 import { toast } from "react-toastify";
+import Edit from "../editmodel/Edit";
 function Productadmin({ data }) {
+  const [edit, setEdit] = useState(null);
   let [deleteProduct, { isLoading }] = useDeleteProductMutation();
   const handleDelete = (id) => {
     deleteProduct(id);
@@ -24,22 +27,34 @@ function Productadmin({ data }) {
           <h2>${el.price}</h2>
           <del>${Math.round(el.price + 5)}</del>
         </div>
-        <button onClick={() => handleDelete(el.id)}>
-          <MdDeleteOutline />
-          <h4>Delete</h4>
-        </button>
+        <div className="btn">
+          <button onClick={() => handleDelete(el.id)}>
+            <MdDeleteOutline />
+            <h4>Delete</h4>
+          </button>
+          <button
+            onClick={() => setEdit(el)}
+            style={{ background: "yellow", color: "#000" }}
+          >
+            <FaRegEdit />
+            <h4>Edit</h4>
+          </button>
+        </div>
       </div>
     </div>
   ));
   return (
-    <div className="container">
-      <div className="manage">
-        <div className="d" id="manage-top">
-          <h1>Popular Products</h1>
+    <>
+      <div className="container">
+        <div className="manage">
+          <div className="d" id="manage-top">
+            <h1>Popular Products</h1>
+          </div>
+          <div className="d1">{products}</div>
         </div>
-        <div className="d1">{products}</div>
       </div>
-    </div>
+      {edit ? <Edit editProduct={edit} setEditProduct={setEdit} /> : <></>}
+    </>
   );
 }
 

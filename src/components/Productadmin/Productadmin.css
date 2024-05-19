@@ -24,3 +24,11 @@
 #manage-top {
   margin-top: 20px;
 }
+.btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+#z {
+  display: block;
+}
